@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7qoxbwiou2cw"]
+
+[ext_resource type="Script" path="res://scripts/defoultTower.gd" id="1_gvwks"]
+[ext_resource type="PackedScene" uid="uid://c7l1ykdiqw63a" path="res://art/3D Models/TowerBase.glb" id="2_glwtb"]
+[ext_resource type="PackedScene" uid="uid://oekrxujsrum6" path="res://art/3D Models/TowerHead.glb" id="3_vkmgx"]
+
+[node name="DefaultTower" type="Node3D"]
+script = ExtResource("1_gvwks")
+
+[node name="TowerBase" parent="." instance=ExtResource("2_glwtb")]
+
+[node name="TowerHead" parent="TowerBase" instance=ExtResource("3_vkmgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.798048, 0)
