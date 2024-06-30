@@ -7,7 +7,11 @@
 [node name="DefaultTower" type="Node3D"]
 script = ExtResource("1_gvwks")
 
-[node name="TowerBase" parent="." instance=ExtResource("2_glwtb")]
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
-[node name="TowerHead" parent="TowerBase" instance=ExtResource("3_vkmgx")]
+[node name="TowerBase" parent="Pivot" instance=ExtResource("2_glwtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="TowerHead" parent="Pivot/TowerBase" instance=ExtResource("3_vkmgx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.798048, 0)

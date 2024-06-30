@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuuhfw2h8nsjd"]
+[gd_scene load_steps=6 format=3 uid="uid://cuuhfw2h8nsjd"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_11unx"]
 [ext_resource type="PackedScene" uid="uid://c7qoxbwiou2cw" path="res://assets/towers/defaultTower.tscn" id="1_a5af5"]
 [ext_resource type="PackedScene" uid="uid://0flyi5xmj1to" path="res://assets/UI/ingame_hud.tscn" id="2_a17ff"]
-[ext_resource type="PackedScene" uid="uid://ctfuuvkavcqvo" path="res://assets/otherGameElements/selected_tile.tscn" id="4_jrhr5"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1gdpu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mudg5"]
 albedo_color = Color(0.223529, 0.25098, 0.211765, 1)
@@ -16,32 +13,24 @@ size = Vector3(60, 1, 60)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_11unx")
-rayLength = 50.0
-tower = ExtResource("1_a5af5")
 
 [node name="DefaultTower" parent="." instance=ExtResource("1_a5af5")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, 0.363129, -0.606744, 0, 0.858065, 0.513541, 0.707107, -0.363129, 0.606744, -7.73047, 7.50568, 7.99391)
+transform = Transform3D(1, 0, 0, 0, 0.85785, 0.513901, 0, -0.513901, 0.85785, 0, 2.77567, 6.61781)
 projection = 1
-size = 16.0
+size = 12.0
 far = 79.26
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.419312, -0.446932, 0.790208, 0.209491, 0.894568, 0.394793, -0.883341, 1.64066e-08, 0.468732, 4.68672, 3.59325, 0)
 shadow_enabled = true
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+mesh = SubResource("BoxMesh_4lp7d")
+
 [node name="IngameHUD" parent="." instance=ExtResource("2_a17ff")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-shape = SubResource("WorldBoundaryShape3D_1gdpu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("BoxMesh_4lp7d")
-skeleton = NodePath("../..")
-
-[node name="SelectedTile" parent="." instance=ExtResource("4_jrhr5")]
+[node name="TESTSPHERE" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.31201, 0.207116)

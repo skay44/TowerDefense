@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("ui_left"):
-		$TowerBase/TowerHead.rotate(Vector3.UP, 1*delta)
-	if Input.is_action_pressed("ui_right"):
-		$TowerBase/TowerHead.rotate(Vector3.UP, -1*delta)
+	if Input.is_action_pressed("move_left"):
+		$Pivot/TowerBase/TowerHead.rotate(Vector3.UP, 1*delta)
+	if Input.is_action_pressed("move_right"):
+		$Pivot/TowerBase/TowerHead.rotate(Vector3.UP, -1*delta)
